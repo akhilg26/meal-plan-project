@@ -1,0 +1,33 @@
+.day-card {
+    background: var(--card);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--coral);
+    padding: 32px;
+    margin-bottom: 24px;
+    transition: transform 0.2s;
+}
+
+.day-card:hover {
+    transform: translateY(-2px)
+}
+
+.grocery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.grocery-card {
+    background: var(--card);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.grocery-card ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
