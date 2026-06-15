@@ -27,12 +27,13 @@ function Register(){
     <p>Please Register Below to Get Started!</p>
     
         </div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} style = {{marginBottom: '20px'}}>
             <input type="text" id="username" name="username" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}></input> <br />
             <input type="text" id="email" name="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}></input> <br />
             <input type="password" id="password" name="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}></input> <br />
             <button type="submit">Register</button>
         </form>
+        <p style={{textAlign: 'center'}}>Already have an account? <Link to='/login'>Login</Link></p>
     </div>
 }
 export default Register

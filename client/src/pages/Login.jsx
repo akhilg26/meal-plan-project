@@ -32,7 +32,7 @@ function Login(){
 <input type="password" id="password" name="password" placeholder="Password" value = {password} onChange={(e) => setPassword(e.target.value)}></input> <br />
 <button type="submit">Login</button>
     </form>
-    <center><p>Don't have an account? <Link to="/register">Create a new account</Link></p></center>
+    <p style = {{textAlign: 'center'}}>Don't have an account? <Link to="/register">Create a new account</Link></p>
     </div>
 }
 export default Login
