@@ -27,12 +27,12 @@ function Login(){
         <h1>Welcome back!</h1>
         <p>Sign in to your meal plan</p>
         </div>   
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} style = {{marginBottom: '20px'}}>
 <input type="text" id="username" name="username" placeholder="Username" value = {username} onChange={(e) => setUsername(e.target.value)}></input> <br />
 <input type="password" id="password" name="password" placeholder="Password" value = {password} onChange={(e) => setPassword(e.target.value)}></input> <br />
 <button type="submit">Login</button>
     </form>
-    <p>Don't have an account? <Link to="/register">Create a new account</Link></p>
+    <center><p>Don't have an account? <Link to="/register">Create a new account</Link></p></center>
     </div>
 }
 export default Login
