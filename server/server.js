@@ -22,7 +22,9 @@ console.log('userProfileRoutes')
 connectDB()
 const app = express()
 
-app.use(cors())
+app.use(cors({
+    origin: 'https://meal-plan-project-one.vercel.app'
+}))
 app.use(express.json())
 app.use('/api/auth', authRoutes)
 app.use('/api/meal-plans', protect, mealPlanRoutes)
