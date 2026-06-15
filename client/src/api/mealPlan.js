@@ -2,7 +2,7 @@ import axios from 'axios'
 
 async function createMealPlan(token) {
     try {
-        const response = await axios.post('http://localhost:8080/api/meal-plans', {}, { 
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/meal-plans`, {}, { 
             headers: {
                 Authorization: `Bearer ${token}`
         }})
@@ -14,7 +14,7 @@ async function createMealPlan(token) {
 
 async function getMealPlan(token, userId){
     try {
-        const response = await axios.get(`http://localhost:8080/api/meal-plans/${userId}`, {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/meal-plans/${userId}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
