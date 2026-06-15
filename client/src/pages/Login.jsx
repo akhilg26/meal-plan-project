@@ -1,6 +1,7 @@
 import { login } from '../api/auth'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
+
 
 
 function Login(){
@@ -31,6 +32,7 @@ function Login(){
 <input type="password" id="password" name="password" placeholder="Password" value = {password} onChange={(e) => setPassword(e.target.value)}></input> <br />
 <button type="submit">Login</button>
     </form>
+    <p>Don't have an account? <Link to="/register">Create a new account</Link></p>
     </div>
 }
 export default Login
