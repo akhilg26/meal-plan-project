@@ -62,6 +62,11 @@ function Profile(){
     }
 
     return <div>
+        <div className='page-title'>
+            <h1>Create your User Profile!</h1>
+            <p>Input all data as accurately as possible!</p> <br />
+            <p>Click submit to begin generating a custom, AI-powered, 7-day meal plan!</p>
+        </div>
         <form onSubmit={handleSubmit}>
             <input type="number" id="age" name="age" placeholder="Age" value={age} onChange={(e) => setAge(e.target.value)}></input> <br/>
             <select value={sex} onChange={(e) => setSex(e.target.value)}>
