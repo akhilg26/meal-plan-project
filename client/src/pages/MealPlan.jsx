@@ -35,7 +35,7 @@ function MealPlan(){
     }, [])
     if (loading) return <div>Loading...</div>
     return <div>
-        <button onClick={() => navigate('/profile')}>Customize Profile</button>
+        <button onClick={() => navigate('/profile')} style={{marginBottom: '20px', backgroundColor: 'yellow'}}>Customize Profile</button>
         {mealPlan ? (
             <div>
                 {mealPlan.days.map((day, index) => (
