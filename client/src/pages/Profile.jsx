@@ -64,7 +64,7 @@ function Profile(){
     return <div>
         <div className='page-title'>
             <h1>Create your User Profile!</h1>
-            <p>Input all data as accurately as possible!</p> <br />
+            <p>Input all data as accurately as possible!</p>
             <p>Click submit to begin generating a custom, AI-powered, 7-day meal plan!</p>
         </div>
         <form onSubmit={handleSubmit}>
