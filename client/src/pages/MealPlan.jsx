@@ -9,6 +9,8 @@ function MealPlan(){
     const id = localStorage.getItem('id')
     const [loading, setLoading] = useState(true)
     const navigate = useNavigate()
+    const [activeTab, setActiveTab] = useState('meal-plan')
+    const [activeDay, setActiveDay] = useState(0)
 
 
     async function fetchMealPlan(){
@@ -35,11 +37,38 @@ function MealPlan(){
     }, [])
     if (loading) return <div>Loading...</div>
     return <div>
-        <button onClick={() => navigate('/profile')} style={{marginBottom: '20px', backgroundColor: 'yellow'}}>Customize Profile</button>
-        {mealPlan ? (
+        <div style={{ display: 'flex', gap: '15px', marginBottom: '15px'}}>
+        <button onClick={() => navigate('/profile')} style={{backgroundColor: 'yellow'}}>Customize Profile</button>
+        <button onClick={() => setActiveTab('grocery-list')} style={{backgroundColor: 'yellow'}}>Grocery List</button>
+        <button onClick={() => setActiveTab('meal-plan')} style={{backgroundColor: 'yellow'}}>Meal Plan</button>
+        {mealPlan.days.map((day, index) => (
+        <button key={index} onClick={() => setActiveDay(index)}>
+            {day.dayName}
+        </button>
+        ))}
+        </div>
+        {activeTab === 'grocery-list' && 
+<div><h2>Grocery List</h2>
+{Object.keys(mealPlan.groceryList)
+    .filter(category => category !== '_id')
+    .map((category) => (
+        <div key={category} className='grocery-card'>
+            <h3>{category}</h3> 
+            <ul>
+                {Array.isArray(mealPlan.groceryList[category]) ? 
+                    mealPlan.groceryList[category].map((item, index) => (
+                        <li key={index}>{item.item} - {item.amount}</li>
+                    ))
+                : null}
+            </ul>
+            <br />
+        </div>
+    ))} </div>}
+            
+        {mealPlan && activeTab === 'meal-plan' ? (
             <div>
                 {mealPlan.days.map((day, index) => (
-                    <div key={index} className='day-card'>
+                    index === activeDay && <div key={index} className='day-card'>
                         <h2>{day.dayName}</h2>
                         <p>Daily Calories: {day.dailyCalories}</p>
                         <p>Breakfast: {day.meals.breakfast.name}</p>
@@ -65,22 +94,8 @@ function MealPlan(){
                         <p>Prep Time: {day.meals.dinner.prepTime} mins</p>
                     </div>
                 ))}
-                <h2>Grocery List</h2>
-<div>{Object.keys(mealPlan.groceryList)
-    .filter(category => category !== '_id')
-    .map((category) => (
-        <div key={category} className='grocery-card'>
-            <h3>{category}</h3> 
-            <ul>
-                {Array.isArray(mealPlan.groceryList[category]) ? 
-                    mealPlan.groceryList[category].map((item, index) => (
-                        <li key={index}>{item.item} - {item.amount}</li>
-                    ))
-                : null}
-            </ul>
-            <br />
-        </div>
-    ))} </div>
+                
+                
             </div>
         ) : (
             <p>Generating your meal plan</p>
