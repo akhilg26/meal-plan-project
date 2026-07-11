@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react'
 import { createMealPlan, getMealPlan } from '../api/mealPlan'
 import './MealPlan.css'
+import { useNavigate } from 'react-router'
 
 function MealPlan(){
     const [mealPlan, setMealPlan] = useState(null)
     const token = localStorage.getItem('token')
     const id = localStorage.getItem('id')
     const [loading, setLoading] = useState(true)
+    const navigate = useNavigate()
 
 
     async function fetchMealPlan(){
@@ -33,6 +35,7 @@ function MealPlan(){
     }, [])
     if (loading) return <div>Loading...</div>
     return <div>
+        <button onClick={() => navigate('/profile')}>Customize Profile</button>
         {mealPlan ? (
             <div>
                 {mealPlan.days.map((day, index) => (
