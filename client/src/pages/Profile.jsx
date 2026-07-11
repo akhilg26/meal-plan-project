@@ -95,27 +95,28 @@ function Profile(){
             <input type="number" id="mealsPerDay" name="mealsPerDay" placeholder="Meals per day" value={mealsPerDay} onChange={(e) => setMealsPerDay(e.target.value)}></input> <br/>
             <input type="number" id="cheatMeals" name="cheatMeals" placeholder="Cheat Meals per week" value={cheatMeals} onChange={(e) => setCheatMeals(e.target.value)}></input> <br/>
             <input type="text" id="foodPreferences" name="foodPreferences" placeholder="Add food preferences" value={foodPreference} onChange={(e) => setFoodPreference(e.target.value)}></input> <br/>
-            <button type="button" onClick={addFoodPreference}>Add</button>
+            
+            <button onClick={addFoodPreference} style={{margin: '10px'}}>Add</button>
             {foodPreferences.map((item, index) => (
             <p key={index}>{item}</p>
             ))} <br />
             <input type="text" id="foodDislikes" name="foodDislikes" placeholder="Add food dislikes" value={foodDislike} onChange={(e) => setFoodDislike(e.target.value)}></input> <br/>
-            <button type="button" onClick={addFoodDislike}>Add</button>
+            <button type="button" onClick={addFoodDislike} style={{margin: '10px'}}>Add</button>
             {foodDislikes.map((item, index) => (
             <p key={index}>{item}</p>
             ))} <br />
             <input type="text" id="dietaryRestrictions" name="dietaryRestrictions" placeholder="Add dietary restrictions" value={dietaryRestriction} onChange={(e) => setDietaryRestriction(e.target.value)}></input> <br/>
-            <button type="button" onClick={addDietaryRestriction}>Add</button>
+            <button type="button" onClick={addDietaryRestriction} style={{margin: '10px'}}>Add</button>
             {dietaryRestrictions.map((item, index) => (
             <p key={index}>{item}</p>
             ))} <br />
             <input type="text" id="medicalConditions" name="medicalConditions" placeholder="Add medical conditions" value={medicalCondition} onChange={(e) => setMedicalCondition(e.target.value)}></input> <br/>
-            <button type="button" onClick={addMedicalCondition}>Add</button>
+            <button type="button" onClick={addMedicalCondition} style={{margin: '10px'}}>Add</button>
             {medicalConditions.map((item, index) => (
             <p key={index}>{item}</p>
             ))} <br />
-            <button type="button" onClick={() => setMacroMode('preset')}>Preset macro split</button>
-            <button type="button" onClick={() => setMacroMode('custom')}>Custom macro split</button>
+            <button type="button" onClick={() => setMacroMode('preset')} style={{margin: '10px'}}>Preset macro split</button>
+            <button type="button" onClick={() => setMacroMode('custom')} style={{margin: '10px'}}>Custom macro split</button>
             {macroMode == 'preset' ? (
                 <select value={macroPreset} onChange={(e) => setMacroPreset(e.target.value)}>
                     <option value="">Select Macro Split</option>
