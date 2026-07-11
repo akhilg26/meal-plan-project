@@ -40,9 +40,8 @@ function MealPlan(){
         <div style={{ display: 'flex', gap: '15px', marginBottom: '15px'}}>
         <button onClick={() => navigate('/profile')} style={{backgroundColor: 'yellow'}}>Customize Profile</button>
         <button onClick={() => setActiveTab('grocery-list')} style={{backgroundColor: 'yellow'}}>Grocery List</button>
-        <button onClick={() => setActiveTab('meal-plan')} style={{backgroundColor: 'yellow'}}>Meal Plan</button>
         {mealPlan.days.map((day, index) => (
-        <button key={index} onClick={() => setActiveDay(index)}>
+        <button key={index} onClick={() => setActiveDay(index)} style={{backgroundColor: 'yellow'}}>
             {day.dayName}
         </button>
         ))}
