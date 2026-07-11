@@ -115,8 +115,8 @@ function Profile(){
             {medicalConditions.map((item, index) => (
             <p key={index}>{item}</p>
             ))} <br />
-            <button type="button" onClick={() => setMacroMode('preset')} style={{margin: '10px'}}>Preset macro split</button>
-            <button type="button" onClick={() => setMacroMode('custom')} style={{margin: '10px'}}>Custom macro split</button>
+            <button type="button" onClick={() => setMacroMode('preset')} style={{margin: '20px'}}>Preset macro split</button>
+            <button type="button" onClick={() => setMacroMode('custom')} style={{margin: '20px'}}>Custom macro split</button>
             {macroMode == 'preset' ? (
                 <select value={macroPreset} onChange={(e) => setMacroPreset(e.target.value)}>
                     <option value="">Select Macro Split</option>
